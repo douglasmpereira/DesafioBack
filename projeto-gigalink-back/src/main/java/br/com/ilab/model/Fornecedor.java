@@ -2,9 +2,13 @@ package br.com.ilab.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Fornecedor {
@@ -32,6 +36,14 @@ public class Fornecedor {
 		
 		@Column(name = "numero")
 		private Integer numero;
+		
+//		@OneToMany(fetch = FetchType.EAGER)
+//		@JoinColumn(name = "id_telefone", nullable = false )
+//		private Telefone telefone;
+//		
+//		@OneToMany(fetch = FetchType.EAGER)
+//		@JoinColumn(name = "id_email", nullable = false )
+//		private Email email;
 
 
 		public Fornecedor() {
