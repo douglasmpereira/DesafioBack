@@ -45,7 +45,9 @@ public class FornecedorController {
 		@ApiResponse(code = 500, message = "Erro de servidor") })
 	@GetMapping
 	public ResponseEntity<List<Fornecedor>> listar() {
-		return ResponseEntity.ok(fornecedorService.listar());
+		List<Fornecedor> listaFornecedores = fornecedorService.listar();
+		
+		return ResponseEntity.ok(listaFornecedores);
 	}
 	
 	@GetMapping("/{id}")

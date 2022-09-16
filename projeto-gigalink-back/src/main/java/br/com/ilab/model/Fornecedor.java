@@ -1,13 +1,15 @@
 package br.com.ilab.model;
 
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -37,13 +39,11 @@ public class Fornecedor {
 		@Column(name = "numero")
 		private Integer numero;
 		
-//		@OneToMany(fetch = FetchType.EAGER)
-//		@JoinColumn(name = "id_telefone", nullable = false )
-//		private Telefone telefone;
-//		
-//		@OneToMany(fetch = FetchType.EAGER)
-//		@JoinColumn(name = "id_email", nullable = false )
-//		private Email email;
+		@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "fornecedor", fetch = FetchType.EAGER )
+		private Set<Telefone> telefone;
+		
+		@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "fornecedor", fetch = FetchType.EAGER  )
+		private Set<Email> email;
 
 
 		public Fornecedor() {
@@ -52,8 +52,8 @@ public class Fornecedor {
 		}
 		
 
-		public Fornecedor(String nome, String descricao, String cidade, String endereco, String bairro,
-				Integer numero) {
+		public Fornecedor(String nome, String descricao, String cidade, String endereco, String bairro, Integer numero,
+				Set<Telefone> telefone, Set<Email> email) {
 			super();
 			this.nome = nome;
 			this.descricao = descricao;
@@ -61,9 +61,9 @@ public class Fornecedor {
 			this.endereco = endereco;
 			this.bairro = bairro;
 			this.numero = numero;
+			this.telefone = telefone;
+			this.email = email;
 		}
-
-
 
 		public Integer getId() {
 			return id;
@@ -120,6 +120,27 @@ public class Fornecedor {
 		public void setNumero(Integer numero) {
 			this.numero = numero;
 		}
+
+
+		public Set<Telefone> getTelefone() {
+			return telefone;
+		}
+
+
+		public void setTelefone(Set<Telefone> telefone) {
+			this.telefone = telefone;
+		}
+
+
+		public Set<Email> getEmail() {
+			return email;
+		}
+
+
+		public void setEmail(Set<Email> email) {
+			this.email = email;
+		}
+			
 		
 	}
 

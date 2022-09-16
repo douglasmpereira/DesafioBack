@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Email {
@@ -21,6 +23,7 @@ public class Email {
 	@Column(name = "email")
 	private String email;
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_fornecedor", nullable = false )
 	private Fornecedor fornecedor;
