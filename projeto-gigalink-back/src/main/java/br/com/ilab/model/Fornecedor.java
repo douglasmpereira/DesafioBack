@@ -9,8 +9,6 @@ import javax.persistence.Id;
 @Entity
 public class Fornecedor {
 	
-	@Entity
-	public class Cliente {
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,12 +33,15 @@ public class Fornecedor {
 		@Column(name = "numero")
 		private Integer numero;
 
-		public Cliente() {
+
+		public Fornecedor() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
+		
 
-		public Cliente(String nome, String descricao, String cidade, String endereco, String bairro, Integer numero) {
+		public Fornecedor(String nome, String descricao, String cidade, String endereco, String bairro,
+				Integer numero) {
 			super();
 			this.nome = nome;
 			this.descricao = descricao;
@@ -49,6 +50,64 @@ public class Fornecedor {
 			this.bairro = bairro;
 			this.numero = numero;
 		}
+
+
+
+		public Integer getId() {
+			return id;
+		}
+
+		public void setId(Integer id) {
+			this.id = id;
+		}
+
+		public String getNome() {
+			return nome;
+		}
+
+		public void setNome(String nome) {
+			this.nome = nome;
+		}
+
+		public String getDescricao() {
+			return descricao;
+		}
+
+		public void setDescricao(String descricao) {
+			this.descricao = descricao;
+		}
+
+		public String getCidade() {
+			return cidade;
+		}
+
+		public void setCidade(String cidade) {
+			this.cidade = cidade;
+		}
+
+		public String getEndereco() {
+			return endereco;
+		}
+
+		public void setEndereco(String endereco) {
+			this.endereco = endereco;
+		}
+
+		public String getBairro() {
+			return bairro;
+		}
+
+		public void setBairro(String bairro) {
+			this.bairro = bairro;
+		}
+
+		public Integer getNumero() {
+			return numero;
+		}
+
+		public void setNumero(Integer numero) {
+			this.numero = numero;
+		}
 		
 	}
-}
+
