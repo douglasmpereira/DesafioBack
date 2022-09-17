@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.ilab.model.Fornecedor;
-import br.com.ilab.model.Transportadora;
 import br.com.ilab.repository.FornecedorRepository;
 import br.com.ilab.repository.TelefoneRepository;
 import javassist.NotFoundException;
@@ -34,11 +33,11 @@ public class FornecedorService {
 	
 	public Fornecedor inserir(Fornecedor fornecedor) {	
 		
-		if(fornecedor.getTelefone().isEmpty()) {
-			
-			 System.out.println("Telefone vazio, não pode adicionar um fornecedor!");
-			return null ;
-		}
+//		if(fornecedor.getTelefone().isEmpty()) {
+//			
+//			 System.out.println("Telefone vazio, não pode adicionar um fornecedor!");
+//			return null ;
+//		}
 		
 		Fornecedor newFornecedor = new Fornecedor();
 		newFornecedor.setNome(fornecedor.getNome());
@@ -49,7 +48,7 @@ public class FornecedorService {
 		newFornecedor.setNumero(fornecedor.getNumero());
 		
 		fornecedorRepository.save(newFornecedor);
-		telefoneRepository.save(fornecedor.getTelefone().iterator().next());
+//		telefoneRepository.save(fornecedor.getTelefone().iterator().next());
 		
 		return newFornecedor;
 	}
