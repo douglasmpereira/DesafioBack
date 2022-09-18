@@ -30,7 +30,7 @@ public class PedidoItem {
 	private Produto produto;
 	
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne( fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_pedido", nullable = false )
 	private Pedido pedido;
 

@@ -34,7 +34,7 @@ public class PedidoService  {
 		newPedido.setDataHora(pedido.getDataHora());
 		newPedido.setNotaFiscal(pedido.getNotaFiscal());
 		newPedido.setFrete(pedido.getFrete());
-		newPedido.setDesconto(pedido.getDesconto());
+//		newPedido.setDesconto(pedido.getDesconto());
 		newPedido.setTransportadora(pedido.getTransportadora());
 		newPedido.setCliente(pedido.getCliente());
 		

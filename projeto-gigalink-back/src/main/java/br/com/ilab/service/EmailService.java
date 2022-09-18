@@ -36,6 +36,7 @@ public class EmailService {
 			
 			Email newEmail = new Email();
 			newEmail.setEmail(email.getEmail());
+			System.out.println("fornecedor"+email.getFornecedor());
 			newEmail.setFornecedor(email.getFornecedor());
 			
 			emailRepository.save(newEmail);

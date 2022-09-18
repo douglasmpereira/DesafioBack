@@ -77,7 +77,10 @@ public class PedidoItemService {
 		Optional<Pedido> pedido = pedidoRepository.findById(idPedido);
 		
 		if(pedido.isPresent()) {
-			pedido.get().setValorTotal(valorTotal + pedido.get().getValorTotal());
+			Double desconto;
+			desconto = valorTotal * 0.15;
+			pedido.get().setDesconto(desconto);
+			pedido.get().setValorTotal(valorTotal + pedido.get().getFrete()- desconto);
 			pedidoRepository.save(pedido.get());
 		}
 		

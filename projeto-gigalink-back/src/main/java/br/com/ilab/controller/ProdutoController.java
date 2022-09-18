@@ -74,7 +74,7 @@ public class ProdutoController {
 		@ApiResponse(code = 403, message = "Recurso proibido"),
 		@ApiResponse(code = 404, message = "Recurso não encontrado"),
 		@ApiResponse(code = 500, message = "Erro de servidor/Método não permitido") })
-	public List<Produto> inserir(@Valid @RequestBody List<Produto> produto) {
+	public Produto inserir(@Valid @RequestBody Produto produto) {
 		
 		return produtoService.inserir(produto);
 	}

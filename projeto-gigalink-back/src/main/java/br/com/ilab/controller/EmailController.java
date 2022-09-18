@@ -60,6 +60,8 @@ public class EmailController {
 		@ApiResponse(code = 404, message = "Recurso não encontrado"),
 		@ApiResponse(code = 500, message = "Erro de servidor") })
 	public  ResponseEntity<List<Email>>  listarPorFornecedorId(@PathVariable Integer id) throws NotFoundException {
+		
+		System.out.println("idfornecedor"+id);
 		if (fornecedorService.buscarId(id) != null) {
 			return ResponseEntity.ok(emailService.listarPorIdFornecedor(id));
 		}

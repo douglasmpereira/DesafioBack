@@ -29,6 +29,8 @@ public class TransportadoraService {
 		Transportadora novaTransp = new Transportadora();
 		novaTransp.setNome(transportadora.getNome());
 		novaTransp.setPrecoPorKm(transportadora.getPrecoPorKm());
+		novaTransp.setTelefone(transportadora.getTelefone());
+		
 		transportadoraRepository.save(novaTransp);
 		
 		return novaTransp;
@@ -40,6 +42,7 @@ public class TransportadoraService {
 			transpEditada.setId(id);
 			transpEditada.setNome(transportadora.getNome());
 			transpEditada.setPrecoPorKm(transportadora.getPrecoPorKm());
+			transpEditada.setTelefone(transportadora.getTelefone());
 		
 			return transportadoraRepository.save(transpEditada);
 			

@@ -19,16 +19,20 @@ public class Transportadora {
 	
 	@Column(name = "precoPorKm")
 	private String precoPorKm;
+	
+	@Column(name = "telefone")
+	private String telefone;
 
 	public Transportadora() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Transportadora(String nome, String precoPorKm) {
+	public Transportadora(String nome, String precoPorKm, String telefone) {
 		super();
 		this.nome = nome;
 		this.precoPorKm = precoPorKm;
+		this.telefone = telefone;
 	}
 
 	public String getNome() {
@@ -53,5 +57,15 @@ public class Transportadora {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	
+	
 	
 }

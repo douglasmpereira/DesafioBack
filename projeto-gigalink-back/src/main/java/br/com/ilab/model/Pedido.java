@@ -1,5 +1,8 @@
 package br.com.ilab.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 
 @Entity
@@ -39,7 +46,11 @@ public class Pedido {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cliente")
-	private Cliente cliente;	
+	private Cliente cliente;
+	
+	
+	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "pedido" )
+	private List<PedidoItem> pedidoItem;
 
 	public Pedido() {
 		super();

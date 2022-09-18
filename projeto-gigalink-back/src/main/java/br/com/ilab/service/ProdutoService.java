@@ -29,11 +29,11 @@ public class ProdutoService {
 		return produto;
 	}
 	
-	public List<Produto> inserir(List<Produto> listaProdutos) {	
+	public Produto inserir(Produto produto) {	
 		
-		List<Produto> produtosInseridos = new ArrayList<Produto>();
-		
-		for(Produto produto: listaProdutos) {
+//		List<Produto> produtosInseridos = new ArrayList<Produto>();
+//		
+//		for(Produto produto: listaProdutos) {
 			
 		
 		Produto newProduto = new Produto();
@@ -46,10 +46,10 @@ public class ProdutoService {
 		
 		produtoRepository.save(newProduto);
 		
-		produtosInseridos.add(newProduto);
-		
-		}
-		return produtosInseridos;
+//		produtosInseridos.add(newProduto);
+//		
+////		}
+		return produto;
 	}
 	
 	public Produto atualizar(Integer id, Produto produto) throws IOException, NotFoundException {
