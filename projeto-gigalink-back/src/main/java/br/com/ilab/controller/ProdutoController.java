@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import javassist.NotFoundException;
 
-@CrossOrigin(origins = "", allowedHeaders = "")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {
@@ -74,9 +74,8 @@ public class ProdutoController {
 		@ApiResponse(code = 403, message = "Recurso proibido"),
 		@ApiResponse(code = 404, message = "Recurso não encontrado"),
 		@ApiResponse(code = 500, message = "Erro de servidor/Método não permitido") })
-	public Produto inserir(@Valid @RequestBody Produto produto) {
+	public List<Produto> inserir(@Valid @RequestBody List<Produto> produto) {
 		
-		System.out.println("produtoc"+produto);
 		return produtoService.inserir(produto);
 	}
 	

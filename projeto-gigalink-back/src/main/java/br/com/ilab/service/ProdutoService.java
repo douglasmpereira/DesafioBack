@@ -1,12 +1,14 @@
 package br.com.ilab.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.ilab.model.PedidoItem;
 import br.com.ilab.model.Produto;
 import br.com.ilab.repository.ProdutoRepository;
 import javassist.NotFoundException;
@@ -27,7 +29,12 @@ public class ProdutoService {
 		return produto;
 	}
 	
-	public Produto inserir(Produto produto) {	
+	public List<Produto> inserir(List<Produto> listaProdutos) {	
+		
+		List<Produto> produtosInseridos = new ArrayList<Produto>();
+		
+		for(Produto produto: listaProdutos) {
+			
 		
 		Produto newProduto = new Produto();
 		newProduto.setNome(produto.getNome());
@@ -38,9 +45,11 @@ public class ProdutoService {
 		newProduto.setFornecedor(produto.getFornecedor());
 		
 		produtoRepository.save(newProduto);
-		System.out.println("fornecedor service"+newProduto);
-
-		return newProduto;
+		
+		produtosInseridos.add(newProduto);
+		
+		}
+		return produtosInseridos;
 	}
 	
 	public Produto atualizar(Integer id, Produto produto) throws IOException, NotFoundException {

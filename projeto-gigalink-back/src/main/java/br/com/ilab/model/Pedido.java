@@ -39,7 +39,7 @@ public class Pedido {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cliente")
-	private Cliente cliente;
+	private Cliente cliente;	
 
 	public Pedido() {
 		super();
